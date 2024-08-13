@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1>Currency Converter</h1>
+    <div class="container dropdown">
+        <form id="form" name="form">
+            <div class="parts">
+                <div class="part_1">
+                    <p>From</p>
+                    <div class="from">
+                        <input type="text" value="1" class="amount" >
+                        <div class="select_container">
+                            <img src="https://flagsapi.com/US/flat/64.png" alt="Country-Flag" id="country-img">
+                            <select name="from">
+                                <option value="">-- Country --</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="part_2">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    <div class="msg">1 USD = 83.95 INR</div>
+                </div>
+                <div class="part_3">
+                    <p>To</p>
+                    <div class="to">
+                        <input type="text" placeholder="Converted Money" class="amount">
+                        <div class="select_container">
+                            <img src="https://flagsapi.com/IN/flat/64.png" alt="Country-Flag" id="country-img">
+                            <select name="to">
+                                <option value="">-- Country --</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="button">Convert</button>
+        </form>
+    </div>
+    <script src="codes.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
