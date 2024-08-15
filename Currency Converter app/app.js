@@ -8,13 +8,19 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
+//This function is used to retrieve data which is in the api
 async function fetchCurrencies() {
     const response = await fetch(`${BASE_URL_CURRENCIES}?apikey=${API_KEY}`);
     const data = await response.json();
+    // console.log(data.data);
     return data.data;
 }   
 
 // Initialize dropdowns
+
+//This function initialize dropdowns and give it country code and country name for each
+//option and append the option with one another.
+
 fetchCurrencies().then(currencyDetails => {
     for (let select of dropdowns) {
         for (const currCode in currencyDetails) {
@@ -36,13 +42,18 @@ fetchCurrencies().then(currencyDetails => {
     }
 });
 
+//This  function give te rate of the conversion of the msg which is displayed between the
+//both country name
 const updateConversionRate = async () => {
     const fromCurrency = fromCurr.value;
     const toCurrency = toCurr.value;
     const URL = `${BASE_URL_LATEST}?base_currency=${fromCurrency}&currencies=${toCurrency}&apikey=${API_KEY}`;
 
     try {
+        //This function is waiting for the api.
         const response = await fetch(URL);
+
+        
         const data = await response.json();
 
         if (!data.data) {
@@ -62,7 +73,7 @@ const updateConversionRate = async () => {
     }
 };
 
-
+//This function update the flag according to the option selected by the user
 const updateFlag = (element) => {
     let currCode = element.value;
     let countryCode = countryList[currCode];
@@ -71,6 +82,7 @@ const updateFlag = (element) => {
     img.src = newSrc;
 };
 
+//This function is convert amount and prints the amount on the right side of the input text
 btn.addEventListener("click", async (evt) => {
     evt.preventDefault();
     let amount = document.querySelector(".from input");
